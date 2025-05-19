@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- URDF WORKS TILL wrist. Need to fix positioning and then work on gripper -->
 <robot name="testing-robot">
 
   <link name="world"></link>
