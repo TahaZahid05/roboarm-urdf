@@ -14,7 +14,7 @@
   <!-- Base Link -->
   <link name="base_link">
     <visual>
-      <origin xyz="-0.04 0.092785522699356109966 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Base.dae" scale="1 1 1"/>
       </geometry>
@@ -24,7 +24,7 @@
 
     </visual>
     <collision>
-      <origin xyz="-0.04 0.092785522699356109966 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Base.dae" scale="1 1 1"/>
       </geometry>
@@ -37,7 +37,7 @@
 
   <!-- Revolute joint connecting base_link to central_axis_link -->
   <joint name="joint_base_to_central" type="revolute">
-    <origin xyz="0 0 0.093107574462890613232"/>
+    <origin xyz="0 0 0.046553787"/>
     <parent link="base_link"/>
     <child link="central_axis_link"/>
     <axis xyz="0 0 1"/>
@@ -51,7 +51,7 @@
   <!-- Central Axis Link -->
   <link name="central_axis_link">
     <visual>
-      <origin xyz="-0.04 0.092785522699356109966 -0.093107574462890613232" rpy="0 0 0"/>
+      <origin xyz="0 0 -0.046553787" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/EjeCentral.dae" scale="1 1 1"/>
       </geometry>
@@ -61,7 +61,7 @@
 
     </visual>
     <collision>
-      <origin xyz="-0.04 0.092785522699356109966 -0.093107574462890613232" rpy="0 0 0"/>
+      <origin xyz="0 0 -0.046553787" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/EjeCentral.dae" scale="1 1 1"/>
       </geometry>
@@ -76,7 +76,7 @@
   <joint name="joint_central_to_forearm" type="revolute">
     <parent link="central_axis_link"/>
     <child link="forearm_link"/>
-    <origin xyz="0 0 0.07" rpy="0 0 0"/>
+    <origin xyz="-0.0075 0 0.06" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
   </joint>
@@ -84,13 +84,13 @@
   <!-- Forearm Link -->
   <link name="forearm_link">
     <visual>
-      <origin xyz="-0.028429296970367431974 0.080424407958984450717 -0.16" rpy="0 0 0"/>
+      <origin xyz="0.0075 0 -0.106553787" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Antebrazo.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-0.028429296970367431974 0.080424407958984450717 -0.16" rpy="0 0 0"/>
+      <origin xyz="0.0075 0 -0.106553787" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Antebrazo.dae" scale="1 1 1"/>
       </geometry>
@@ -101,7 +101,7 @@
   <joint name="joint_forearm_to_arm" type="revolute">
     <parent link="forearm_link"/>
     <child link="arm_link"/>
-    <origin xyz="0 0 0.13" rpy="0 0 0"/>
+    <origin xyz="0 0 0.12" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
   </joint>
@@ -109,13 +109,13 @@
   <!-- Arm Link -->
   <link name="arm_link">
     <visual>
-      <origin xyz="-0.03 0.08633435821533209931 -0.29242617797851566674" rpy="0 0 0"/>
+      <origin xyz="0.0075 0 -0.226553787" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Brazo.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-0.03 0.08633435821533209931 -0.29242617797851566674" rpy="0 0 0"/>
+      <origin xyz="0.0075 0 -0.226553787" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Brazo.dae" scale="1 1 1"/>
       </geometry>
@@ -126,7 +126,7 @@
   <joint name="joint_arm_to_wrist" type="revolute">
     <parent link="arm_link"/>
     <child link="wrist_link"/>
-    <origin xyz="-0.06 -0.011158664703 0.0075" rpy="0 0 0"/>
+    <origin xyz="-0.06 -0.011158664703 0.02" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
     <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
   </joint>
@@ -134,13 +134,13 @@
   <!-- Wrist Link -->
   <link name="wrist_link">
     <visual>
-      <origin xyz="0.028 0.1 -0.3" rpy="0 0 0"/>
+      <origin xyz="0.0675 0.011158664703 -0.24755378" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Muteca.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0.028 0.1 -0.3" rpy="0 0 0"/>
+      <origin xyz="0.0675 0.011158664703 -0.24755378" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Muteca.dae" scale="1 1 1"/>
       </geometry>
@@ -159,38 +159,155 @@
   <!-- Gripper Base Link -->
   <link name="gripper_base_link">
     <visual>
-      <origin xyz="0.035 0.021828266918659258722 -0.18234000396728520577" rpy="0 0 0"/>
+      <origin xyz="0.1275 0.011158664703 -0.24755378" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Basedelagarra.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0.035 0.021828266918659258722 -0.18234000396728520577" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Basedelagarra.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
 
-  <!-- Revolute joint: gripper_base_link to gripper_finger1_link -->
-  <joint name="joint_gripper_finger1" type="revolute">
+  <joint name="joint_base_tapapgarra" type="fixed">
     <parent link="gripper_base_link"/>
-    <child link="gripper_finger1_link"/>
+    <child link="tapapgarra_link"/>
+    <origin xyz="-0.05 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name = "tapapgarra_link">
+    <visual>
+      <origin xyz="0.1775 0.011158664703 -0.24755378" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Tapapgarra.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1775 0.011158664703 -0.24755378" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Tapapgarra.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_base_engranaje1" type="revolute">
+    <parent link="gripper_base_link"/>
+    <child link="engranaje1_link"/>
+    <origin xyz="-0.035 0.01 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="0" effort="5" velocity="1"/>
+  </joint>
+
+  <link name = "engranaje1_link">
+    <visual>
+      <origin xyz="0.1625 0.001158665 -0.24755378" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Engranaje1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1625 0.001158665 -0.24755378" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Engranaje1.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_base_barra1" type="fixed">
+    <parent link="engranaje1_link"/>
+    <child link="barra1_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+    <link name = "barra1_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Barra1.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Barra1.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="joint_base_engranaje2" type="revolute">
+    <parent link="gripper_base_link"/>
+    <child link="engranaje2_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <limit lower="0" upper="3.14" effort="5" velocity="1"/>
   </joint>
 
+  <link name = "engranaje2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Engranaje2.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Engranaje2.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="joint_base_barra2" type="revolute">
+    <parent link="gripper_base_link"/>
+    <child link="barra2_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="3.14" effort="5" velocity="1"/>
+  </joint>
+
+  <link name = "barra2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Barra2.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot_rviz/meshes/Barra2.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Revolute joint: gripper_base_link to gripper_finger1_link -->
+  <joint name="joint_engranaje1_finger1" type="fixed">
+    <parent link="engranaje1_link"/>
+    <child link="gripper_finger1_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="joint_barra1_finger1" type="fixed">
+    <parent link="barra1_link"/>
+    <child link="gripper_finger1_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
   <!-- Gripper finger 1 -->
   <link name="gripper_finger1_link">
     <visual>
-      <origin xyz="0 0 -0.19234000396728520577" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Pinza1.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 -0.19234000396728520577" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Pinza1.dae" scale="1 1 1"/>
       </geometry>
@@ -198,8 +315,17 @@
   </link>
 
   <!-- Revolute joint: gripper_base_link to gripper_finger2_link -->
-  <joint name="joint_gripper_finger2" type="fixed">
-    <parent link="gripper_finger1_link"/>
+  <joint name="joint_engranaje2_finger2" type="fixed">
+    <parent link="engranaje2_link"/>
+    <child link="gripper_finger2_link"/>
+    <!-- <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="3.14" effort="5" velocity="1"/> -->
+  </joint>
+
+  <!-- Revolute joint: gripper_base_link to gripper_finger2_link -->
+  <joint name="joint_barra2_finger2" type="fixed">
+    <parent link="barra2_link"/>
     <child link="gripper_finger2_link"/>
     <!-- <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
@@ -209,13 +335,13 @@
   <!-- Gripper finger 2 -->
   <link name="gripper_finger2_link">
     <visual>
-      <origin xyz="0 0 -0.19234000396728520577" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Pinza2.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 -0.19234000396728520577" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://my_robot_rviz/meshes/Pinza2.dae" scale="1 1 1"/>
       </geometry>
